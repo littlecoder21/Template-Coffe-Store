@@ -9,6 +9,11 @@ const menuRoutes = require('./routes/menu');
 const galleryRoutes = require('./routes/gallery');
 const searchRoutes = require('./routes/search');
 
+// Import admin routes
+const adminRoutes = require('./routes/admin');
+const adminMenuRoutes = require('./routes/adminMenu');
+const adminGalleryRoutes = require('./routes/adminGallery');
+
 dotenv.config();
 
 const app = express();
@@ -34,6 +39,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/coffee-sh
 app.use('/api/menu', menuRoutes);
 app.use('/api/gallery', galleryRoutes);
 app.use('/api/search', searchRoutes);
+
+// Admin routes
+app.use('/api/admin', adminRoutes);
+app.use('/api/admin/menu', adminMenuRoutes);
+app.use('/api/admin/gallery', adminGalleryRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

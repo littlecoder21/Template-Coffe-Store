@@ -32,12 +32,24 @@ if [ ! -f .env ]; then
     echo "✅ .env file created. Please edit it with your MongoDB connection string."
 fi
 
+# Create initial admin user
+echo "👤 Creating initial admin user..."
+node scripts/createAdmin.js
+
 # Go back to root
 cd ..
 
 # Install client dependencies
 echo "📦 Installing client dependencies..."
 cd client
+npm install
+
+# Go back to root
+cd ..
+
+# Install admin dependencies
+echo "📦 Installing admin dependencies..."
+cd admin
 npm install
 
 # Go back to root
@@ -54,3 +66,11 @@ echo ""
 echo "🌐 The website will be available at:"
 echo "   Frontend: http://localhost:3000"
 echo "   Backend:  http://localhost:5000"
+echo "   Admin Panel: http://localhost:3001"
+echo ""
+echo "🔐 Admin Panel Login:"
+echo "   Username: admin"
+echo "   Password: admin123"
+echo "   Email: admin@coffeeshop.com"
+echo ""
+echo "⚠️  Please change the admin password after first login for security."
