@@ -1,0 +1,19 @@
+{
+  "name": "coffee-shop-website",
+  "version": "1.0.0",
+  "description": "Coffee Shop Website with English and Arabic support",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["coffee", "shop", "website", "react", "express", "mongodb"],
+  "author": "Coffee Shop Owner",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
